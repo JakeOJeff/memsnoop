@@ -9,6 +9,6 @@ with open("books.csv", "w", newline="") as f:
     pageToScrape = requests.get("https://orbitysws.vercel.app/")
     soup = BeautifulSoup(pageToScrape.text, "html.parser")
     titles = soup.find_all('h4', attrs={'class':'text-base'})
-    
+
     for title in titles:
-        writer.writerow([title]) 
+        writer.writerow([title.text]) 
